@@ -1,0 +1,25 @@
+.Content {
+  flex: 1;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.Content div {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .Content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Content {
+    padding: 1rem;
+  }
+}
+
