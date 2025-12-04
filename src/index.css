@@ -1,32 +1,138 @@
+/* --------- 폰트 설정 --------- */
+
+@font-face {
+  font-family: "TmoneyRound";
+  src: url("./assets/fonts/TmoneyRound.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./assets/fonts/Pretendard-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --------- CSS 변수 설정 (일반 모드 기본값) --------- */
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* 폰트 */
+  font-family: "TmoneyRound", "Pretendard", system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* 색상 변수 - 일반 모드 (흰색 배경 + 파란색 포인트) */
+  --color-text: #213547;
+  --color-bg: #ffffff;
+  --color-link: #3b82f6;
+  --color-link-hover: #2563eb;
+  --color-button-bg: #f9f9f9;
+  --color-button-border: #3b82f6;
+
+  /* 기본 색상 적용 */
+  color: var(--color-text);
+  color-scheme: light;
+  background-color: var(--color-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* --------- 일반 모드 설정 (명시적) --------- */
+
+[data-theme="light"] {
+  --color-text: #213547;
+  --color-bg: #ffffff;
+  --color-link: #3b82f6;
+  --color-link-hover: #2563eb;
+  --color-button-bg: #f9f9f9;
+  --color-button-border: #3b82f6;
+  color-scheme: light;
+}
+
+/* --------- 다크 모드 설정 (검은색 배경 + 하얀색 포인트) --------- */
+
+[data-theme="dark"] {
+  --color-text: #ffffff;
+  --color-bg: #000000;
+  --color-link: #ffffff;
+  --color-link-hover: #e5e7eb;
+  --color-button-bg: #1a1a1a;
+  --color-button-border: #ffffff;
+  color-scheme: dark;
+}
+
+/* --------- 파스텔 모드1 설정 (흰색 배경 + 그린 포인트) --------- */
+
+[data-theme="pastel-green"] {
+  --color-text: #213547;
+  --color-bg: #ffffff;
+  --color-link: #22c55e;
+  --color-link-hover: #16a34a;
+  --color-button-bg: #f9f9f9;
+  --color-button-border: #22c55e;
+  color-scheme: light;
+}
+
+/* --------- 파스텔 모드2 설정 (흰색 배경 + 핑크 포인트) --------- */
+
+[data-theme="pastel-pink"] {
+  --color-text: #213547;
+  --color-bg: #ffffff;
+  --color-link: #ec4899;
+  --color-link-hover: #db2777;
+  --color-button-bg: #f9f9f9;
+  --color-button-border: #ec4899;
+  color-scheme: light;
+}
+
+/* --------- 파스텔 모드3 설정 (흰색 배경 + 노랑 포인트) --------- */
+
+[data-theme="pastel-yellow"] {
+  --color-text: #213547;
+  --color-bg: #ffffff;
+  --color-link: #f59e0b;
+  --color-link-hover: #d97706;
+  --color-button-bg: #f9f9f9;
+  --color-button-border: #f59e0b;
+  color-scheme: light;
+}
+
+/* --------- 파스텔 모드4 설정 (흰색 배경 + 바이올렛 포인트) --------- */
+
+[data-theme="pastel-violet"] {
+  --color-text: #213547;
+  --color-bg: #ffffff;
+  --color-link: #8b5cf6;
+  --color-link-hover: #7c3aed;
+  --color-button-bg: #f9f9f9;
+  --color-button-border: #8b5cf6;
+  color-scheme: light;
+}
+
+/* --------- 링크 설정 --------- */
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--color-link);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--color-link-hover);
 }
+
+/* --------- 바디 설정 --------- */
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: var(--color-bg);
 }
 
 h1 {
@@ -34,12 +140,13 @@ h1 {
   line-height: 1.1;
 }
 
-/* 반응형 디자인 */
+/* --------- 반응형 디자인 --------- */
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2em;
   }
-  
+
   body {
     padding: 1rem;
   }
@@ -51,6 +158,8 @@ h1 {
   }
 }
 
+/* --------- 버튼 설정 --------- */
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -58,28 +167,37 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color-button-bg);
+  color: var(--color-text);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--color-button-border);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+/* --------- 시스템 테마 자동 감지 (선택사항) --------- */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-text: #ffffff;
+    --color-bg: #000000;
+    --color-link: #ffffff;
+    --color-link-hover: #e5e7eb;
+    --color-button-bg: #1a1a1a;
+    --color-button-border: #ffffff;
+    color-scheme: dark;
   }
 }
 
+/* data-theme이 설정되어 있으면 시스템 테마 무시 */
+[data-theme] {
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+}

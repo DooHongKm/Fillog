@@ -1,13 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import React from "react"
+import ReactDOM from "react-dom/client"
+import { BrowserRouter } from "react-router-dom"
 
-import App from './App.jsx'
-import './index.css'
+import App from "./App.jsx"
+import "./index.css"
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+// 초기 테마 설정
+const savedTheme = localStorage.getItem("theme") || "light"
+document.documentElement.setAttribute("data-theme", savedTheme)
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <App />
   </BrowserRouter>
 )
-
