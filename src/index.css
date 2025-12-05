@@ -14,16 +14,15 @@
   font-style: normal;
 }
 
-/* --------- CSS 변수 설정 (일반 모드 기본값) --------- */
+
+/* --------- CSS 변수 설정 --------- */
 
 :root {
-  /* 폰트 */
-  font-family: "TmoneyRound", "Pretendard", system-ui, Avenir, Helvetica, Arial,
-    sans-serif;
+  font-family: "TmoneyRound", "Pretendard", system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  /* 색상 변수 - 일반 모드 (흰색 배경 + 파란색 포인트) */
+  /* 기본 색상 */
   --color-text: #213547;
   --color-bg: #ffffff;
   --color-link: #3b82f6;
@@ -31,19 +30,21 @@
   --color-button-bg: #f9f9f9;
   --color-button-border: #3b82f6;
 
-  /* 기본 색상 적용 */
-  color: var(--color-text);
   color-scheme: light;
+  color: var(--color-text);
   background-color: var(--color-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
 
-/* --------- 일반 모드 설정 (명시적) --------- */
 
+/* --------- 테마 설정 --------- */
+
+/* Light Theme */
 [data-theme="light"] {
   --color-text: #213547;
   --color-bg: #ffffff;
@@ -54,8 +55,7 @@
   color-scheme: light;
 }
 
-/* --------- 다크 모드 설정 (검은색 배경 + 하얀색 포인트) --------- */
-
+/* Dark Theme */
 [data-theme="dark"] {
   --color-text: #ffffff;
   --color-bg: #000000;
@@ -66,8 +66,7 @@
   color-scheme: dark;
 }
 
-/* --------- 파스텔 모드1 설정 (흰색 배경 + 그린 포인트) --------- */
-
+/* Green Theme */
 [data-theme="pastel-green"] {
   --color-text: #213547;
   --color-bg: #ffffff;
@@ -78,8 +77,7 @@
   color-scheme: light;
 }
 
-/* --------- 파스텔 모드2 설정 (흰색 배경 + 핑크 포인트) --------- */
-
+/* Pink Theme */
 [data-theme="pastel-pink"] {
   --color-text: #213547;
   --color-bg: #ffffff;
@@ -90,8 +88,7 @@
   color-scheme: light;
 }
 
-/* --------- 파스텔 모드3 설정 (흰색 배경 + 노랑 포인트) --------- */
-
+/* Yellow Theme */
 [data-theme="pastel-yellow"] {
   --color-text: #213547;
   --color-bg: #ffffff;
@@ -102,8 +99,7 @@
   color-scheme: light;
 }
 
-/* --------- 파스텔 모드4 설정 (흰색 배경 + 바이올렛 포인트) --------- */
-
+/* Violet Theme */
 [data-theme="pastel-violet"] {
   --color-text: #213547;
   --color-bg: #ffffff;
@@ -113,6 +109,26 @@
   --color-button-border: #8b5cf6;
   color-scheme: light;
 }
+
+/* 시스템 테마 자동 감지 및 설정 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-text: #ffffff;
+    --color-bg: #000000;
+    --color-link: #ffffff;
+    --color-link-hover: #e5e7eb;
+    --color-button-bg: #1a1a1a;
+    --color-button-border: #ffffff;
+    color-scheme: dark;
+  }
+}
+[data-theme] {
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 
 /* --------- 링크 설정 --------- */
 
@@ -124,6 +140,7 @@ a {
 a:hover {
   color: var(--color-link-hover);
 }
+
 
 /* --------- 바디 설정 --------- */
 
@@ -140,15 +157,12 @@ h1 {
   line-height: 1.1;
 }
 
+
 /* --------- 반응형 디자인 --------- */
 
 @media (max-width: 768px) {
   h1 {
     font-size: 2em;
-  }
-
-  body {
-    padding: 1rem;
   }
 }
 
@@ -157,6 +171,7 @@ h1 {
     font-size: 1.5em;
   }
 }
+
 
 /* --------- 버튼 설정 --------- */
 
@@ -172,32 +187,12 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: var(--color-button-border);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* --------- 시스템 테마 자동 감지 (선택사항) --------- */
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --color-text: #ffffff;
-    --color-bg: #000000;
-    --color-link: #ffffff;
-    --color-link-hover: #e5e7eb;
-    --color-button-bg: #1a1a1a;
-    --color-button-border: #ffffff;
-    color-scheme: dark;
-  }
-}
-
-/* data-theme이 설정되어 있으면 시스템 테마 무시 */
-[data-theme] {
-  color-scheme: light;
-}
-[data-theme="dark"] {
-  color-scheme: dark;
 }

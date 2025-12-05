@@ -51,8 +51,8 @@ const Header = () => {
 
   return (
     <header className="Header">
-      <div className="Header-logo">
-        {/* <img src={logo} alt="logo" /> */}
+      {/* <div className="Header-logo">
+        <img src={logo} alt="logo" />
         Header
       </div>
       <div className="Header-theme-selector" ref={dropdownRef}>
@@ -86,7 +86,7 @@ const Header = () => {
             ))}
           </div>
         )}
-      </div>
+      </div> */}
     </header>
   )
 }
