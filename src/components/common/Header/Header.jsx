@@ -1,102 +1,70 @@
 import { useState, useEffect, useRef } from "react"
+
 import "./Header.css"
-import logo from "@/assets/images/logoBlue.png"
+import logoBlue from "@/assets/images/logoBlue.png"
+import logoPink from "@/assets/images/logoPink.png"
+import logoGreen from "@/assets/images/logoGreen.png"
+import logoWhite from "@/assets/images/logoWhite.png"
+import logoViolet from "@/assets/images/logoViolet.png"
+import logoYellow from "@/assets/images/logoYellow.png"
 import myPageIcon from "@/assets/images/myPageIcon.png"
 import searchIcon from "@/assets/images/searchIcon.png"
 
 const Header = () => {
-  // const [currentTheme, setCurrentTheme] = useState("light")
-  // const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  // const dropdownRef = useRef(null)
 
-  // const themes = [
-  //   { name: "일반", value: "light", color: "#3b82f6" },
-  //   { name: "다크", value: "dark", color: "#ffffff" },
-  //   { name: "그린", value: "pastel-green", color: "#22c55e" },
-  //   { name: "핑크", value: "pastel-pink", color: "#ec4899" },
-  //   { name: "노랑", value: "pastel-yellow", color: "#f59e0b" },
-  //   { name: "바이올렛", value: "pastel-violet", color: "#8b5cf6" }
-  // ]
+  const themes = [
+    { name: "blue", color: "rgb(147, 191, 213)", logo: "logoBlue" },
+    { name: "pink", color: "rgb(216, 172, 165)", logo: "logoPink" },
+    { name: "green", color: "rgb(142, 206, 170)", logo: "logoGreen" },
+    { name: "violet", color: "rgb(191, 165, 216)", logo: "logoViolet" },
+    { name: "yellow", color: "rgb(227, 226, 158)", logo: "logoYellow" },
+    { name: "white", color: "rgb(255, 255, 255)", logo: "logoWhite" }
+  ]
 
-  // useEffect(() => {
-  //   // 초기 테마 설정 (localStorage에서 불러오기)
-  //   const savedTheme = localStorage.getItem("theme") || "light"
-  //   changeTheme(savedTheme)
-  // }, [])
+  const [currentTheme, setCurrentTheme] = useState("blue")
+  const [isOpenThemeSelector, setIsOpenThemeSelector] = useState(false)
 
-  // useEffect(() => {
-  //   // 외부 클릭 시 드롭다운 닫기
-  //   const handleClickOutside = (event) => {
-  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-  //       setIsDropdownOpen(false)
-  //     }
-  //   }
 
-  //   if (isDropdownOpen) {
-  //     document.addEventListener("mousedown", handleClickOutside)
-  //   }
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside)
-  //   }
-  // }, [isDropdownOpen])
-
-  // const changeTheme = (theme) => {
-  //   document.documentElement.setAttribute("data-theme", theme)
-  //   setCurrentTheme(theme)
-  //   localStorage.setItem("theme", theme)
-  //   setIsDropdownOpen(false)
-  // }
-
-  // const currentThemeData =
-  //   themes.find((t) => t.value === currentTheme) || themes[0]
 
   return (
     <header className="headerContainer">
-      <img src={logo} alt="logo" className="headerLogo" />
-      <div className="emptyBox" />
-      <button className="headerIcon">
-        <img src={searchIcon} alt="검색" className="headerIconImage" />
+      {/* 로고 */}
+      <button className="headerLogoIcon">
+        <img src={logo} alt="logo" className="headerLogo" />
       </button>
-
-
-
-      {/* <div className="Header-logo">
-        <img src={logo} alt="logo" />
-        Header
-      </div>
-      <div className="Header-theme-selector" ref={dropdownRef}>
-        <button
-          className="Header-theme-icon-btn"
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          aria-label="테마 선택"
-        >
-          <span
-            className="Header-theme-icon"
-            style={{ backgroundColor: currentThemeData.color }}
-          />
+      <div className="emptyBox" />
+      <div className="headerIconBox">
+        {/* 검색 아이콘 */}
+        <button className="headerIcon">
+          <img src={searchIcon} alt="Sch" className="headerIconImage" />
         </button>
-        {isDropdownOpen && (
-          <div className="Header-theme-dropdown">
+        {/* 목록 아이콘 */}
+        <button className="headerIcon">
+          <img src={searchIcon} alt="Lst" className="headerIconImage" />
+        </button>
+        {/* 테마 선택 아이콘 */}
+        <button className="headerIcon">
+          <img src={searchIcon} alt="Thm" className="headerIconImage" />
+        </button>
+        {/* 마이페이지 아이콘 */}
+        <button className="headerIcon" onClick={() => setIsOpenThemeSelector(true)}>
+          <img src={myPageIcon} alt="My" className="headerIconImage" />
+        </button>
+        {/* 테마 선택 드롭다운 */}
+        {isOpenThemeSelector && (
+          <div className="themeSelector">
             {themes.map((theme) => (
               <button
-                key={theme.value}
-                className={`Header-theme-option ${
-                  currentTheme === theme.value ? "active" : ""
-                }`}
-                onClick={() => changeTheme(theme.value)}
-                aria-label={`${theme.name} 테마로 변경`}
+                key={theme.name}
+                className="themeSelectorOption"
+                onClick={() => setCurrentTheme(theme.name)}
               >
-                <span
-                  className="Header-theme-option-color"
-                  style={{ backgroundColor: theme.color }}
-                />
-                <span className="Header-theme-option-name">{theme.name}</span>
+                <div className="themeSelectorOptionColor" style={{ backgroundColor: theme.color }} />
               </button>
             ))}
           </div>
         )}
-      </div> */}
+      </div>
     </header>
   )
 }
