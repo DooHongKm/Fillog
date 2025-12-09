@@ -1,56 +1,66 @@
 import { useState, useEffect, useRef } from "react"
 import "./Header.css"
-import logo from "@/assets/images/logoBlue2.png"
+import logo from "@/assets/images/logoBlue.png"
+import myPageIcon from "@/assets/images/myPageIcon.png"
+import searchIcon from "@/assets/images/searchIcon.png"
 
 const Header = () => {
-  const [currentTheme, setCurrentTheme] = useState("light")
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const dropdownRef = useRef(null)
+  // const [currentTheme, setCurrentTheme] = useState("light")
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  // const dropdownRef = useRef(null)
 
-  const themes = [
-    { name: "일반", value: "light", color: "#3b82f6" },
-    { name: "다크", value: "dark", color: "#ffffff" },
-    { name: "그린", value: "pastel-green", color: "#22c55e" },
-    { name: "핑크", value: "pastel-pink", color: "#ec4899" },
-    { name: "노랑", value: "pastel-yellow", color: "#f59e0b" },
-    { name: "바이올렛", value: "pastel-violet", color: "#8b5cf6" }
-  ]
+  // const themes = [
+  //   { name: "일반", value: "light", color: "#3b82f6" },
+  //   { name: "다크", value: "dark", color: "#ffffff" },
+  //   { name: "그린", value: "pastel-green", color: "#22c55e" },
+  //   { name: "핑크", value: "pastel-pink", color: "#ec4899" },
+  //   { name: "노랑", value: "pastel-yellow", color: "#f59e0b" },
+  //   { name: "바이올렛", value: "pastel-violet", color: "#8b5cf6" }
+  // ]
 
-  useEffect(() => {
-    // 초기 테마 설정 (localStorage에서 불러오기)
-    const savedTheme = localStorage.getItem("theme") || "light"
-    changeTheme(savedTheme)
-  }, [])
+  // useEffect(() => {
+  //   // 초기 테마 설정 (localStorage에서 불러오기)
+  //   const savedTheme = localStorage.getItem("theme") || "light"
+  //   changeTheme(savedTheme)
+  // }, [])
 
-  useEffect(() => {
-    // 외부 클릭 시 드롭다운 닫기
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false)
-      }
-    }
+  // useEffect(() => {
+  //   // 외부 클릭 시 드롭다운 닫기
+  //   const handleClickOutside = (event) => {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //       setIsDropdownOpen(false)
+  //     }
+  //   }
 
-    if (isDropdownOpen) {
-      document.addEventListener("mousedown", handleClickOutside)
-    }
+  //   if (isDropdownOpen) {
+  //     document.addEventListener("mousedown", handleClickOutside)
+  //   }
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [isDropdownOpen])
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside)
+  //   }
+  // }, [isDropdownOpen])
 
-  const changeTheme = (theme) => {
-    document.documentElement.setAttribute("data-theme", theme)
-    setCurrentTheme(theme)
-    localStorage.setItem("theme", theme)
-    setIsDropdownOpen(false)
-  }
+  // const changeTheme = (theme) => {
+  //   document.documentElement.setAttribute("data-theme", theme)
+  //   setCurrentTheme(theme)
+  //   localStorage.setItem("theme", theme)
+  //   setIsDropdownOpen(false)
+  // }
 
-  const currentThemeData =
-    themes.find((t) => t.value === currentTheme) || themes[0]
+  // const currentThemeData =
+  //   themes.find((t) => t.value === currentTheme) || themes[0]
 
   return (
-    <header className="Header">
+    <header className="headerContainer">
+      <img src={logo} alt="logo" className="headerLogo" />
+      <div className="emptyBox" />
+      <button className="headerIcon">
+        <img src={searchIcon} alt="검색" className="headerIconImage" />
+      </button>
+
+
+
       {/* <div className="Header-logo">
         <img src={logo} alt="logo" />
         Header

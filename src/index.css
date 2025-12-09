@@ -42,6 +42,47 @@
 }
 
 
+/* --------- 박스 사이징 설정 --------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* --------- 크기 고정 요소 설정 --------- */
+img,
+button,
+input,
+textarea,
+select,
+svg,
+canvas,
+video,
+iframe,
+[width],
+[height] {
+  flex-shrink: 0;
+}
+
+
+/* --------- 커서 포인터 설정 --------- */
+button,
+a,
+[role="button"],
+[onclick],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+label[for],
+[tabindex]:not([tabindex="-1"]) {
+  cursor: pointer;
+}
+
+
 /* --------- 테마 설정 --------- */
 
 /* Light Theme */
