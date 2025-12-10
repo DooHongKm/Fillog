@@ -22,14 +22,14 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* 기본 색상 */
+  /* 기본 색상 (blue 테마) */
   --color-text: #213547;
   --color-bg: #ffffff;
-  --color-link: #3b82f6;
-  --color-link-hover: #2563eb;
+  --color-link: rgb(147, 191, 213);
+  --color-link-hover: rgb(120, 165, 185);
   --color-button-bg: #f9f9f9;
   --color-button-bg-hover: #eeeeee;
-  --color-button-border: #3b82f6;
+  --color-button-border: rgb(147, 191, 213);
 
   color-scheme: light;
   color: var(--color-text);
@@ -71,69 +71,69 @@ iframe,
 
 /* --------- 테마 설정 --------- */
 
-/* Light Theme */
-[data-theme="light"] {
+/* Blue Theme */
+[data-theme="blue"] {
   --color-text: #213547;
   --color-bg: #ffffff;
-  --color-link: #3b82f6;
-  --color-link-hover: #2563eb;
+  --color-link: rgb(147, 191, 213);
+  --color-link-hover: rgb(120, 165, 185);
   --color-button-bg: #f9f9f9;
-  --color-button-border: #3b82f6;
-  color-scheme: light;
-}
-
-/* Dark Theme */
-[data-theme="dark"] {
-  --color-text: #ffffff;
-  --color-bg: #000000;
-  --color-link: #ffffff;
-  --color-link-hover: #e5e7eb;
-  --color-button-bg: #1a1a1a;
-  --color-button-border: #ffffff;
-  color-scheme: dark;
-}
-
-/* Green Theme */
-[data-theme="pastel-green"] {
-  --color-text: #213547;
-  --color-bg: #ffffff;
-  --color-link: #22c55e;
-  --color-link-hover: #16a34a;
-  --color-button-bg: #f9f9f9;
-  --color-button-border: #22c55e;
+  --color-button-border: rgb(147, 191, 213);
   color-scheme: light;
 }
 
 /* Pink Theme */
-[data-theme="pastel-pink"] {
+[data-theme="pink"] {
   --color-text: #213547;
   --color-bg: #ffffff;
-  --color-link: #ec4899;
-  --color-link-hover: #db2777;
+  --color-link: rgb(216, 172, 165);
+  --color-link-hover: rgb(195, 145, 135);
   --color-button-bg: #f9f9f9;
-  --color-button-border: #ec4899;
+  --color-button-border: rgb(216, 172, 165);
   color-scheme: light;
 }
 
-/* Yellow Theme */
-[data-theme="pastel-yellow"] {
+/* Green Theme */
+[data-theme="green"] {
   --color-text: #213547;
   --color-bg: #ffffff;
-  --color-link: #f59e0b;
-  --color-link-hover: #d97706;
+  --color-link: rgb(142, 206, 170);
+  --color-link-hover: rgb(115, 180, 145);
   --color-button-bg: #f9f9f9;
-  --color-button-border: #f59e0b;
+  --color-button-border: rgb(142, 206, 170);
   color-scheme: light;
 }
 
 /* Violet Theme */
-[data-theme="pastel-violet"] {
+[data-theme="violet"] {
   --color-text: #213547;
   --color-bg: #ffffff;
-  --color-link: #8b5cf6;
-  --color-link-hover: #7c3aed;
+  --color-link: rgb(191, 165, 216);
+  --color-link-hover: rgb(165, 135, 195);
   --color-button-bg: #f9f9f9;
-  --color-button-border: #8b5cf6;
+  --color-button-border: rgb(191, 165, 216);
+  color-scheme: light;
+}
+
+/* Yellow Theme */
+[data-theme="yellow"] {
+  --color-text: #213547;
+  --color-bg: #ffffff;
+  --color-link: rgb(227, 226, 158);
+  --color-link-hover: rgb(200, 200, 130);
+  --color-button-bg: #f9f9f9;
+  --color-button-border: rgb(227, 226, 158);
+  color-scheme: light;
+}
+
+/* White Theme */
+[data-theme="white"] {
+  --color-text: #213547;
+  --color-bg: #ffffff;
+  --color-link: rgb(255, 255, 255);
+  --color-link-hover: rgb(230, 230, 230);
+  --color-button-bg: #f9f9f9;
+  --color-button-border: rgb(200, 200, 200);
   color-scheme: light;
 }
 
