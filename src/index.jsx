@@ -6,7 +6,7 @@ import App from "./App.jsx"
 import "./index.css"
 
 // 초기 테마 설정
-const savedTheme = localStorage.getItem("theme") || "light"
+const savedTheme = localStorage.getItem("theme") || "blue"
 document.documentElement.setAttribute("data-theme", savedTheme)
 
 ReactDOM.createRoot(document.getElementById("root")).render(

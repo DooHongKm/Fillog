@@ -40,7 +40,7 @@
 .headerIconBox {
   width: fit-content;
   height: 100%;
-  gap: 4px;
+  gap: 8px;
   display: flex;
   align-items: center;
   justify-content: center; 
@@ -51,7 +51,6 @@
   height: 40px;
   padding: 0;
   background-color: var(--color-button-border);
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,36 +61,60 @@
   height: 100%;
 }
 
-/* .themeSelector {
-  width: 100%;
-  height: 100%;
+.headerThemeIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerThemeIcon {
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  background-color: var(--color-button-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeSelector {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: calc(100% + 8px);
+  left: -8px;
+  width: 40px;
+  padding: 8px;
   background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
 }
 
 .themeSelectorOption {
   width: 100%;
-  height: 100%;
-  padding: 8px;
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  aspect-ratio: 1;
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.themeSelectorOption:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .themeSelectorOptionColor {
   width: 100%;
   height: 100%;
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-} */
+  border-radius: 4px;
+}

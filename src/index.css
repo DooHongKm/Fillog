@@ -126,15 +126,15 @@ iframe,
   color-scheme: light;
 }
 
-/* White Theme */
-[data-theme="white"] {
-  --color-text: #213547;
-  --color-bg: #ffffff;
-  --color-link: rgb(255, 255, 255);
-  --color-link-hover: rgb(230, 230, 230);
-  --color-button-bg: #f9f9f9;
-  --color-button-border: rgb(200, 200, 200);
-  color-scheme: light;
+/* Dark Theme */
+[data-theme="dark"] {
+  --color-text: #ffffff;
+  --color-bg: #000000;
+  --color-link: #ffffff;
+  --color-link-hover: #e5e7eb;
+  --color-button-bg: #1a1a1a;
+  --color-button-border: #ffffff;
+  color-scheme: dark;
 }
 
 /* 시스템 테마 자동 감지 및 설정 */
@@ -151,9 +151,6 @@ iframe,
 }
 [data-theme] {
   color-scheme: light;
-}
-[data-theme="dark"] {
-  color-scheme: dark;
 }
 
 
